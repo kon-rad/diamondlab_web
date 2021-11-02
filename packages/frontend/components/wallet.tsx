@@ -23,12 +23,12 @@ const Wallet = () => {
         <>
             {!web3Connect.active && 
                 <Menu>
-                <MenuButton as={Button} rightIcon={<ChevronDownIcon />} colorScheme={DEFAULT_COLOR_SCHEME}>
-                    Connect
-                </MenuButton>
-                <MenuList>
-                    <MenuItem onClick={connect}>Metamask</MenuItem>
-                </MenuList>
+                    <MenuButton as={Button} rightIcon={<ChevronDownIcon />} colorScheme={DEFAULT_COLOR_SCHEME}>
+                        Connect
+                    </MenuButton>
+                    <MenuList>
+                        <MenuItem onClick={connect}>Metamask</MenuItem>
+                    </MenuList>
                 </Menu>
             }
             {web3Connect.active && typeof web3Connect.account === 'string' && typeof web3Connect.chainId === 'number' && 
@@ -36,7 +36,7 @@ const Wallet = () => {
                 <Menu>
                     <MenuButton as={Button}>
                         <Flex alignItems='center'>
-                        <Box>{formatAddress(web3Connect.account)}</Box>
+                            <Box>{formatAddress(web3Connect.account)}</Box>
                         </Flex>
                     </MenuButton>
                 </Menu>

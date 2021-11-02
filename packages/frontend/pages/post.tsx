@@ -35,6 +35,10 @@ const Post = () => {
         }
     }
 
+    const handleSubmit = (description: string) => {
+        console.log('submit');
+    }
+
     return (
         <>
         <Flex p={5}>
@@ -45,7 +49,7 @@ const Post = () => {
             </VStack>
         </Flex>
         <div className="create__container">
-            <CreateForm />
+            <CreateForm submit={handleSubmit} handleFileUpload={setFileUpload} />
         </div>
         </>
     )
