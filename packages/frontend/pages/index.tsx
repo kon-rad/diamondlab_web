@@ -78,6 +78,14 @@ const Home: NextPage = () => {
             <Image src={logo} width="64px" height="64px"/>
           </VStack>
         </Box>
+        <Box>
+          <div className="gallery">
+            {nfts.map(
+              (nft: any, i: number) =>
+                nft && <h3>nft</h3>
+            )}
+          </div>
+        </Box>
       </Container>
     </div>
   )

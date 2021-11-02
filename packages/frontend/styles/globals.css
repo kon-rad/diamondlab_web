@@ -14,3 +14,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.heading {
+  font-size: 32px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.text-center {
+  text-align: center;
+}

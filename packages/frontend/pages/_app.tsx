@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import { ChakraProvider, extendTheme } from "@chakra-ui/react"
 import { Web3ReactProvider } from '@web3-react/core'
 import { getProvider } from '../utils/web3';
+import Layout from '../components/layout';
 
 // https://coolors.co/ffbe0b-fb5607-ff006e-8338ec-3a86ff
 const colors = {
@@ -19,7 +20,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Web3ReactProvider  getLibrary={getProvider}>
       <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ChakraProvider>
     </Web3ReactProvider>
   )
