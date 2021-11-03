@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Flex, Textarea, Center, Box, Button } from '@chakra-ui/react'
+import { Input, Flex, Textarea, Center, Box, Button } from '@chakra-ui/react'
 import { uploadImageToIPFS } from '../services/create-post';
 
 type Props = {
@@ -10,9 +10,10 @@ const CreateForm = (props: Props) => {
     const [fileUrl, setFileUrl] = useState<any>(null);
     const [fileUpload, setFileUpload] = useState();
     const [description, setDescription] = useState<string>('');
+    const [price, setPrice] = useState<string>('');
 
     const handleSubmit = () => {
-        props.submit(description, fileUrl);
+        props.submit(description, fileUrl, price);
     }
 
     async function handleImageUpload(e: any) {
@@ -22,16 +23,17 @@ const CreateForm = (props: Props) => {
         }
         const file = e.target.files[0];
         try {
-            const url = await uploadImageToIPFS(file);
-            setFileUrl(url);
-            setFileUpload(file);
+            // const url = await uploadImageToIPFS(file);
+            // setFileUrl(url);
+            // setFileUpload(file);
+            setFileUrl("https://ipfs.infura.io/ipfs/QmQVDpasygPGJ6dQZzCzzFvDZoPgPbprSfp6pyhkZLr8DL");
         } catch (error) {
             console.log(`Error uploading file: ${error}`);
         }
     }
     const renderImage = () => {
         if (fileUrl) {
-        return <img className="rounded mt-4" width="350" src={fileUrl} />;
+            return <img className="rounded mt-4" width="350" src={fileUrl} />;
         }
         return '';
     };
@@ -50,6 +52,9 @@ const CreateForm = (props: Props) => {
                             placeholder="NFT description"
                             size="sm"
                         />
+                        <Box mb={4}>
+                            <Input w="100px" placeholder="ETH price" onChange={(e) => setPrice(e.target.value)} />
+                        </Box>
                         <Box mb={4}>
                             <input type="file" name="image" className="CreateForm__img" onChange={handleImageUpload}/>
                         </Box>

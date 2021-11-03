@@ -62,6 +62,7 @@ const Home: NextPage = () => {
     const items = await Promise.all((data || []).map(getItem));
     setNfts(items);
     setLoadingState('loaded');
+    console.log('done loading');
   }
 
   return (

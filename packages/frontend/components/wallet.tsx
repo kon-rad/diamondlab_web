@@ -11,10 +11,12 @@ const Wallet = () => {
 
     const connect = () => {
         web3Connect.activate(injected, (error) => {
+            // todo: present toast notifications
+            console.error('connection error: ', error);
             if (error instanceof UserRejectedRequestError) {
-            // ignore user rejected error
+                // ignore user rejected error
             } else {
-            web3Connect.setError(error)
+                web3Connect.setError(error)
             }
         }, false)
     }

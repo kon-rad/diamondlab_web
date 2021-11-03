@@ -11,6 +11,7 @@ export const injected = new InjectedConnector({
         10, // Optimistic
         42,
         137, // polygon
+        1337, // local hardhat node
         80001, // mumbai
         42161
     ]
