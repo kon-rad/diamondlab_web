@@ -24,7 +24,7 @@ const Home: NextPage = () => {
   async function loadNFTs() {
     /* create a generic provider and query for unsold market items */
     const provider = new ethers.providers.JsonRpcProvider();
-    const tokenContract = new ethers.Contract(nftAddress, NFT.abi, provider);
+    const nftContract = new ethers.Contract(nftAddress, NFT.abi, provider);
     const marketContract = new ethers.Contract(
       dlMarketAddress,
       Market.abi,
@@ -35,7 +35,7 @@ const Home: NextPage = () => {
 
     const getItem = async (i: any) => {
       console.log('item: ', i);
-      const tokenUri = await tokenContract.tokenURI(i.tokenId);
+      const tokenUri = await nftContract.tokenURI(i.tokenId);
       if (/undefined/.test(tokenUri)) {
         return;
       }

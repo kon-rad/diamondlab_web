@@ -29,8 +29,10 @@ export async function createPost(address: string, provider: Web3Provider, descri
             description,
             image: fileUrl,
         });
-        const added = await client.add(data);
-        const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+        // const added = await client.add(data);
+        // const url = `https://ipfs.infura.io/ipfs/${added.path}`;
+        // todo: remove dev mode
+        const url = "https://ipfs.infura.io/ipfs/QmQVDpasygPGJ6dQZzCzzFvDZoPgPbprSfp6pyhkZLr8DL";
         console.log('creating sale: ', url, price, address);
         /* after file is uploaded to nftStorage, pass the URL to save it on blockchain */
         createSale(url, price, address, provider);
@@ -47,6 +49,7 @@ async function createSale(url: string, price: string, address: string, provider:
     const nftContract = new ethers.Contract(nftAddress, NFT.abi, signer);
     let transaction = await nftContract.createToken(url);
     const tx = await transaction.wait();
+    console.log("tx:", tx);
     if (tx.events.length < 1) {
         console.error('tx has no events. tx: ', tx);
         return;

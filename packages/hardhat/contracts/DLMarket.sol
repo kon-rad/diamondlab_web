@@ -104,6 +104,7 @@ contract DLMarket is ReentrancyGuard {
     uint itemCount = _itemIds.current();
     uint unsoldItemCount = _itemIds.current() - _itemsSold.current();
     uint currentIndex = 0;
+    console.log("fetchMarketItems is called with unsoldItemCount:", unsoldItemCount);
 
     MarketItem[] memory items = new MarketItem[](unsoldItemCount);
     for (uint i = 0; i < itemCount; i++) {
