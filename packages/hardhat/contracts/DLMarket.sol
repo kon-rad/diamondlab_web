@@ -17,6 +17,7 @@ contract DLMarket is ReentrancyGuard {
 
   constructor() {
     owner = payable(msg.sender);
+    console.log("DLMarket constructor is called with msg.sender:", msg.sender);
   }
 
   struct MarketItem {
