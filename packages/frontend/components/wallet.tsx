@@ -4,9 +4,10 @@ import { injected, formatAddress } from '../utils/web3'
 import { UserRejectedRequestError } from '@web3-react/injected-connector'
 import { DEFAULT_COLOR_SCHEME } from '../utils/constants'
 import { ChevronDownIcon } from '@chakra-ui/icons'
+import { useRouter } from 'next/router'
 
 const Wallet = () => {
-
+    const router = useRouter()
     const web3Connect = useWeb3React();
 
     const connect = () => {
@@ -19,6 +20,10 @@ const Wallet = () => {
                 web3Connect.setError(error)
             }
         }, false)
+    }
+    const navigateToProfile = () => {
+        console.log('navigateToProfile');
+        router.push('/profile');
     }
 
     return (
@@ -34,15 +39,18 @@ const Wallet = () => {
                 </Menu>
             }
             {web3Connect.active && typeof web3Connect.account === 'string' && typeof web3Connect.chainId === 'number' && 
-            <>
-                <Menu>
-                    <MenuButton as={Button}>
-                        <Flex alignItems='center'>
-                            <Box>{formatAddress(web3Connect.account)}</Box>
-                        </Flex>
-                    </MenuButton>
-                </Menu>
-            </>
+                <>
+                    <Menu>
+                        <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                            <Flex alignItems='center'>
+                                <Box>{formatAddress(web3Connect.account)}</Box>
+                            </Flex>
+                        </MenuButton>
+                        <MenuList>
+                            <MenuItem onClick={navigateToProfile}>Profile</MenuItem>
+                        </MenuList>
+                    </Menu>
+                </>
             }
         </>
     )

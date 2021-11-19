@@ -1,3 +1,35 @@
+/* // https://coolors.co/f72585-7209b7-3a0ca3-4361ee-4cc9f0 */
+
+root {
+    /* CSS HEX */
+  --flickr-pink: #f72585ff;
+  --purple: #7209b7ff;
+  --trypan-blue: #3a0ca3ff;
+  --ultramarine-blue: #4361eeff;
+  --vivid-sky-blue: #4cc9f0ff;
+
+  /* https://coolors.co/7400b8-6930c3-5e60ce-5390d9-4ea8de-48bfe3-56cfe1-64dfdf-72efdd-80ffdb */
+  /* CSS HEX */
+  --purple: #7400b8ff;
+  --french-violet: #6930c3ff;
+  --slate-blue: #5e60ceff;
+  --tufts-blue: #5390d9ff;
+  --blue-jeans: #4ea8deff;
+  --vivid-sky-blue: #48bfe3ff;
+  --sky-blue-crayola: #56cfe1ff;
+  --medium-turquoise: #64dfdfff;
+  --turquoise: #72efddff;
+  --aquamarine: #80ffdbff;
+
+  /* https://coolors.co/cdb4db-ffc8dd-ffafcc-bde0fe-a2d2ff */
+  /* CSS HEX */
+  --pink-lavender: #cdb4dbff;
+  --orchid-pink: #ffc8ddff;
+  --nadeshiko-pink: #ffafccff;
+  --uranian-blue: #bde0feff;
+  --baby-blue-eyes: #a2d2ffff;
+}
+
 html,
 body {
   padding: 0;

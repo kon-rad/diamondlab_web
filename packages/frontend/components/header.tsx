@@ -10,7 +10,7 @@ const Header = () => {
         <Flex as="header" p={4} alignItems="center">
             <LinkBox>
                 <NextLink href="/" passHref={true}>
-                    <Text fontSize="2xl">💎 Diamond Heart</Text>
+                    <Text fontSize="2xl">💎 Diamond Lab</Text>
                 </NextLink>
             </LinkBox>
             <Spacer />

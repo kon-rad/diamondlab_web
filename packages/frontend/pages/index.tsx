@@ -6,7 +6,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import logo from '../resources/images/logo.png';
-import { Container, Box, VStack, Text } from '@chakra-ui/react';
+import { Container, Box, VStack, Text, Flex } from '@chakra-ui/react';
+import NFTCard from '../components/NFTCard';
 
 import { nftAddress, dlMarketAddress } from '../config';
 
@@ -36,6 +37,7 @@ const Home: NextPage = () => {
     const getItem = async (i: any) => {
       console.log('item: ', i);
       const tokenUri = await nftContract.tokenURI(i.tokenId);
+      console.log("tokenUri: ", tokenUri);
       if (/undefined/.test(tokenUri)) {
         return;
       }
@@ -48,11 +50,9 @@ const Home: NextPage = () => {
         owner: i.owner,
         sold: i.sold,
         image: meta.data.image,
-        startTimeStamp: meta.data.startTimeStamp,
-        duration: meta.data.duration,
         description: meta.data.description,
       };
-      console.log('item: ', meta);
+      console.log('item meta: ', meta);
       return item;
     };
 
@@ -66,29 +66,29 @@ const Home: NextPage = () => {
   }
 
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Diamond Lab</title>
         <meta name="description" content="Diamond Lab" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container>
+      <Container maxW="xl">
         <Box mb={4} mt={2}>
           <VStack>
-            <Text fontSize="3xl">Diamond Lab is your NFT home</Text>
+            <Text variant="primary" fontSize="3xl">Diamond Lab is your NFT home</Text>
             <Image src={logo} width="64px" height="64px"/>
           </VStack>
         </Box>
-        <Box>
-          <div className="gallery">
+      </Container>
+      <Box px={6}>
+        <Flex flexDirection="row" w="100%">
             {nfts.map(
               (nft: any, i: number) =>
-                nft && <h3>nft</h3>
+                nft && <NFTCard nft={nft} key={`${nft.tokenId}_${i}`} />
             )}
-          </div>
-        </Box>
-      </Container>
-    </div>
+        </Flex>
+      </Box>
+    </>
   )
 }
 

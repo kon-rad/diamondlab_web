@@ -40,9 +40,9 @@ const CreateForm = (props: Props) => {
     return (
         <>
             <Center>
-                <Box maxW="lg" p={4} borderWidth="1px" borderRadius="lg" overflow="hidden">
+                <Box borderColor="brand.purple"  bg={"brand.aquamarine"} maxW="lg" p={4} borderWidth="1px" borderRadius="lg" overflow="hidden">
                     <Flex direction="column">
-                        <Box mb={4} h="300px" borderWidth="1px" borderRadius="lg" overflow="hidden">
+                        <Box borderColor="brand.purple"  mb={4} h="300px" borderWidth="1px" borderRadius="lg" overflow="hidden">
                             {renderImage()}
                         </Box>
                         <Textarea
@@ -51,9 +51,10 @@ const CreateForm = (props: Props) => {
                             onChange={(e) => setDescription(e.target.value)}
                             placeholder="NFT description"
                             size="sm"
+                            borderColor="brand.purple" 
                         />
                         <Box mb={4}>
-                            <Input w="100px" placeholder="ETH price" onChange={(e) => setPrice(e.target.value)} />
+                            <Input borderColor="brand.purple"  w="100px" placeholder="ETH price" onChange={(e) => setPrice(e.target.value)} />
                         </Box>
                         <Box mb={4}>
                             <input type="file" name="image" className="CreateForm__img" onChange={handleImageUpload}/>
