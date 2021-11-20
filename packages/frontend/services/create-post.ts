@@ -6,6 +6,7 @@ import { nftAddress, dlMarketAddress } from '../config';
 import NFT from '../artifacts/contracts/DLNFT.sol/DLNFT.json';
 import Market from '../artifacts/contracts/DLMarket.sol/DLMarket.json';
 
+// @ts-ignore
 const client = ipfsHttpClient('https://ipfs.infura.io:5001/api/v0');
 
 export async function uploadImageToIPFS(file: any): Promise<string> {

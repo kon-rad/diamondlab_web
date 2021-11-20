@@ -3,11 +3,9 @@ import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import axios from 'axios';
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import logo from '../resources/images/logo.png';
-import { Container, Box, VStack, Text, Flex } from '@chakra-ui/react';
-import NFTCard from '../components/NFTCard';
+import { Container, Image, SimpleGrid, Box, VStack, Text, Flex } from '@chakra-ui/react';
+import DisplayGrid from '../components/displayGrid';
 
 import { nftAddress, dlMarketAddress } from '../config';
 
@@ -76,17 +74,14 @@ const Home: NextPage = () => {
         <Box mb={4} mt={2}>
           <VStack>
             <Text variant="primary" fontSize="3xl">Diamond Lab is your NFT home</Text>
-            <Image src={logo} width="64px" height="64px"/>
+            <Image src={'/resources/images/logo.png'} width="64px" height="64px"/>
           </VStack>
         </Box>
       </Container>
       <Box px={6}>
-        <Flex flexDirection="row" w="100%">
-            {nfts.map(
-              (nft: any, i: number) =>
-                nft && <NFTCard nft={nft} key={`${nft.tokenId}_${i}`} />
-            )}
-        </Flex>
+        <SimpleGrid minChildWidth="120px" spacing="40px">
+          <DisplayGrid nfts={nfts} />
+        </SimpleGrid>
       </Box>
     </>
   )
