@@ -54,6 +54,12 @@ const dlTheme = {
 
 const theme = extendTheme(dlTheme)
 
+declare global {
+  interface Window {
+    ethereum: any;
+  }
+}
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Web3ReactProvider  getLibrary={getProvider}>
