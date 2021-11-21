@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "ceramic": "ceramic daemon"
+    "ceramic": "ceramic daemon",
+    "deploy:localhost": "npx hardhat run scripts/deploy.js --network localhost",
+    "copy": "bash ./copyArtifacts.sh",
+    "compile": "npx hardhat compile"
   },
   "dependencies": {
     "@3id/connect": "^0.2.5",

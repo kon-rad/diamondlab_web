@@ -16,6 +16,13 @@ const Header = () => {
             <Spacer />
             <Box mr={4}>
                 <LinkBox>
+                    <NextLink href="/mint" passHref={true}>
+                        <Button>mint</Button>
+                    </NextLink>
+                </LinkBox>
+            </Box>
+            <Box mr={4}>
+                <LinkBox>
                     <NextLink href="/database" passHref={true}>
                         <Button>Database</Button>
                     </NextLink>

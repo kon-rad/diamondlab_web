@@ -172,9 +172,9 @@ const Profile = () => {
     }
     
     return (
-        <Box mt={6}>
+        <Box mb={16} mt={6}>
             <Flex justifyContent="center">
-                <Box maxWidth="900px" my={4}>
+                <Box maxWidth="900px" mt={4} mb={24}>
                     <Grid
                         h="260px"
                         templateRows="repeat(2, 1fr)"

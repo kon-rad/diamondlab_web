@@ -1,13 +1,7 @@
-import { useState, useEffect } from 'react';
-import { ethers } from 'ethers';
-import axios from 'axios';
-import { Center, Flex, VStack, Box, Text } from '@chakra-ui/react';
+import { Center, Flex, Text } from '@chakra-ui/react';
 import { useWeb3React } from '@web3-react/core';
 import CreateForm from '../components/createForm';
 import { createPost } from '../services/create-post';
-import { nftAddress, dlMarketAddress } from '../config';
-import NFT from '../artifacts/contracts/DLNFT.sol/DLNFT.json';
-import Market from '../artifacts/contracts/DLMarket.sol/DLMarket.json';
 
 const Post = () => {
 
