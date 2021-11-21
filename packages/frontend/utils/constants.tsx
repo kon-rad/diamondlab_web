@@ -1,1 +1,6 @@
 export const DEFAULT_COLOR_SCHEME = 'teal'
+export const DESCRIPTION = 'NFT Social Media '
+export const IMAGE_OG = '/resources/images/logo.png'
+export const SITE_URL = ''
+export const SOCIAL_HANDLE = ''
+export const TITLE = 'Diamond Lab'

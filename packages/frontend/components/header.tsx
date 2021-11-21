@@ -7,13 +7,27 @@ import { AddIcon } from '@chakra-ui/icons'
 
 const Header = () => {
     return (
-        <Flex as="header" p={4} alignItems="center">
+        <Flex as="header" p={4} alignItems="center" bg="brand.gradienta">
             <LinkBox cursor="pointer">
                 <NextLink href="/" passHref={true}>
-                    <Text fontSize="2xl">💎 Diamond Lab</Text>
+                    <Text fontWeight="bold" fontSize="2xl" color="brand.darkslategray">💎 Diamond Lab</Text>
                 </NextLink>
             </LinkBox>
             <Spacer />
+            <Box mr={4}>
+                <LinkBox>
+                    <NextLink href="/database" passHref={true}>
+                        <Button>Database</Button>
+                    </NextLink>
+                </LinkBox>
+            </Box>
+            <Box mr={4}>
+                <LinkBox>
+                    <NextLink href="/upcoming" passHref={true}>
+                        <Button>Upcoming</Button>
+                    </NextLink>
+                </LinkBox>
+            </Box>
             <Box mr={4}>
                 <LinkBox>
                     <NextLink href="/search" passHref={true}>

@@ -16,16 +16,18 @@ const NFTCard = (props: Props) => {
         
         setImgSrc("/resources/images/logo.png");
     }
+    console.log("loading: ", nft);
+    
     return (
-                <Image
-                    borderRadius="xl"
-                    src={imgSrc ? imgSrc : nft.image}
-                    alt="nft image"
-                    boxSize="280px"
-                    objectFit="cover"
-                    cursor="pointer"
-                    onError={handleError}
-                />
+        <Image
+            borderRadius="xl"
+            src={imgSrc ? imgSrc : (nft.image || "/resources/images/logo.png")}
+            alt="nft image"
+            boxSize="280px"
+            objectFit="cover"
+            cursor="pointer"
+            onError={handleError}
+        />
     )
 }
 

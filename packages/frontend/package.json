@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-		"ceramic": "ceramic daemon"
+    "ceramic": "ceramic daemon"
   },
   "dependencies": {
     "@3id/connect": "^0.2.5",
@@ -19,6 +19,7 @@
     "@emotion/styled": "^11",
     "@ensdomains/ensjs": "^2.0.1",
     "@ethersproject/providers": "^5.5.0",
+    "@fontsource/syne": "^4.5.0",
     "@geist-ui/react": "^2.2.0",
     "@self.id/core": "^0.1.0",
     "@self.id/web": "^0.1.0",

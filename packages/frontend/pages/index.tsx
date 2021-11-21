@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import axios from 'axios';
-import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { Container, Image, SimpleGrid, Box, VStack, Text, Flex } from '@chakra-ui/react';
 import DisplayGrid from '../components/displayGrid';
@@ -65,20 +64,15 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Head>
-        <title>Diamond Lab</title>
-        <meta name="description" content="Diamond Lab" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <Container maxW="xl">
         <Box mb={4} mt={2}>
           <VStack>
-            <Text variant="primary" fontSize="3xl">Diamond Lab is your NFT home</Text>
-            <Image src={'/resources/images/logo.png'} width="64px" height="64px"/>
+            <Text variant="primary" fontSize="3xl">Connect | Discover | Trade</Text>
+            <Image borderRadius="xl" src={'/resources/images/logo.png'} width="64px" height="64px"/>
           </VStack>
         </Box>
       </Container>
-      <Box px={6}>
+      <Box p={6}>
         <SimpleGrid minChildWidth="120px" spacing="40px">
           <DisplayGrid nfts={nfts} />
         </SimpleGrid>

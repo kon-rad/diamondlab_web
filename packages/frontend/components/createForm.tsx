@@ -61,7 +61,7 @@ const CreateForm = (props: Props) => {
         <>
             <Center>
                 <Box
-                    borderColor="brand.purple"
+                    borderColor="brand.darkslategray"
                     bg={'brand.aquamarine'}
                     maxW="lg"
                     p={4}
@@ -71,7 +71,7 @@ const CreateForm = (props: Props) => {
                 >
                     <Flex direction="column">
                         <Box
-                            borderColor="brand.purple"
+                            borderColor="brand.darkslategray"
                             mb={4}
                             h="300px"
                             borderWidth="1px"
@@ -88,11 +88,11 @@ const CreateForm = (props: Props) => {
                             }
                             placeholder="NFT description"
                             size="sm"
-                            borderColor="brand.purple"
+                            borderColor="brand.darkslategray"
                         />
                         <Box mb={4}>
                             <Input
-                                borderColor="brand.purple"
+                                borderColor="brand.darkslategray"
                                 w="100px"
                                 placeholder="ETH price"
                                 onChange={(e) =>

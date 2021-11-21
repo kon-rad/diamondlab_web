@@ -1472,6 +1472,11 @@
     "@ethersproject/properties" "^5.5.0"
     "@ethersproject/strings" "^5.5.0"
 
+"@fontsource/syne@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/syne/-/syne-4.5.0.tgz#ece1457ff6f01b4c021fbd088dca1ce92857b6a1"
+  integrity sha512-jPBpootysCJpJ0X9g8kb7411kwCIHx9HKaI26be86hpUdX1Q0q0uFEZhc8Bnhhub6UinU78wIE1o4aNTraH5iQ==
+
 "@geist-ui/react@^2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@geist-ui/react/-/react-2.2.0.tgz#964a2bb695edf69f8c87c9ecd8ad782bc0ba7038"

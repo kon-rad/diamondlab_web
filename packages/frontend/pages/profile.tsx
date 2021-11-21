@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
-    Container,
+    Input,
+    Text,
+    Textarea,
     Button,
     Flex,
     Box,
@@ -49,7 +51,10 @@ const Profile = () => {
     const [isFetching, setIsFetching] = useState<boolean>(false);
     const [nftList, setNFTList] = useState<NFT[]>([]);
     const [isOwner, setIsOwner] = useState<boolean>(true);
-    const [editMode, setEditMode] = useState<boolean>(false);
+    const [isEditing, setIsEditing] = useState<boolean>(false);
+    const [name, setName] = useState<string>("");
+    const [bio, setBio] = useState<string>("");
+    const [location, setLocation] = useState<string>("");
 
     const web3 = useWeb3React()
     const core = new Core({ ceramic: 'testnet-clay' })
@@ -61,7 +66,7 @@ const Profile = () => {
     
     useEffect(() => {
         fetchNfts();
-        console.log('effect');
+        getProfile();
     }, []);
 
     const fetchNfts = async () => {
@@ -70,87 +75,133 @@ const Profile = () => {
         setNFTList(tokens);
         setIsFetching(false);
     };
-    console.log("nftList: ", nftList);
     const handleEdit = async () => {
-        // setEditMode(!editMode);
-        const readVal = await getSelfIDProfile();
-        console.log("read: ", readVal);
+        setIsEditing(!isEditing);
     }
-    const setProfile = async (profile: any) => {
+    const setProfile = async () => {
         if (!web3.account) {
             return;
         }
-        const addresses = await window.ethereum.enable()
-
-        debugger;
-        console.log("setting profile");
-        
-        // The following configuration assumes your local node is connected to the Clay testnet
         const self = await SelfID.authenticate({
             authProvider: new EthereumAuthProvider(window.ethereum, web3.account),
             ceramic: 'local',
             connectNetwork: 'testnet-clay',
         })
 
+        const profile = {
+            name,
+            description: bio,
+            location,
+        }
         await self.set('basicProfile', profile)
-        const profileDM = await self.get('basicProfile');
+        console.log("saved: ", profile);
         console.log("id: ", self.id);
-        // did:3:kjzl6cwe1jw148fea5wgifatlt07ogdyjjaaup37qgq3h1t6rbd42zoqswusqp4
         
-        console.log(profileDM);
+        // did:3:kjzl6cwe1jw148fea5wgifatlt07ogdyjjaaup37qgq3h1t6rbd42zoqswusqp4
     }
-    const getSelfIDProfile = async () => {
+    const getProfile = async () => {
         if (!window.ethereum) {
             return;
         }
-        console.log("getting profile");
         const addresses = await window.ethereum.enable()
 
-        // The following configuration assumes your local node is connected to the Clay testnet
         const self = await SelfID.authenticate({
-        authProvider: new EthereumAuthProvider(window.ethereum, addresses[0]),
-                ceramic: 'local',
-                connectNetwork: 'testnet-clay',
-            })
+            authProvider: new EthereumAuthProvider(window.ethereum, addresses[0]),
+            ceramic: 'local',
+            connectNetwork: 'testnet-clay',
+        })
 
-        return await self.get('basicProfile')
+        const data = await self.get('basicProfile');
+        setName(data.name);
+        setBio(data.description);
+        setLocation(data.location);
     }
     const handleLik = () => {
-        setProfile(MOCK_PROFILE);
+        console.log("like button clicked");
     }
-    // console.log("read: ", getSelfIDProfile());
+    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setName(event.target.value);
+    }
+    const handleBioChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+        setBio(event.target.value);
+    }
+    const handleLocationChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setLocation(event.target.value);
+    }
+    const handleSave = () => {
+        setProfile();
+        setIsEditing(false);
+    }
+    const renderHeading = () => {
+        if (isEditing) {
+            return (
+                <Flex flexDirection="column">
+                    <Input placeholder="name" mb={2} onChange={handleNameChange} value={name} name="name" type="text" />
+                    <Input placeholder="location" onChange={handleLocationChange} value={location} name="location" type="text" />
+                </Flex>
+            )
+        }
+        return (
+            <Flex flexDirection="column">
+                <Text mb={2} fontSize="xl">{name}</Text>
+                <Text fontSize="xl">{location}</Text>
+            </Flex>
+        )
+    }
+    const renderBio = () => {
+        if (isEditing) {
+            return (
+                <Flex flexDirection="row">
+                    <Textarea placeholder="bio" mb={2} value={bio} onChange={handleBioChange} name="name" type="text" />
+                </Flex>
+            )
+        }
+        return (
+            <Flex flexDirection="row">
+                <Text fontSize="xl">{bio}</Text>
+            </Flex>
+        )
+    }
+    const renderEditButton = () => {
+        if (!isOwner) {
+            return "";
+        }
+        return isEditing
+            ? <Button onClick={handleSave}>Save</Button>
+            : <Button onClick={handleEdit}>Edit</Button>;
+    }
     
     return (
         <Box mt={6}>
             <Flex justifyContent="center">
-                <Box maxWidth="900px">
+                <Box maxWidth="900px" my={4}>
                     <Grid
                         h="260px"
                         templateRows="repeat(2, 1fr)"
                         templateColumns="repeat(5, 1fr)"
                         gap={4}
                     >
-                        <GridItem rowSpan={2} colSpan={1}>
+                        <GridItem rowSpan={2} colSpan={2}>
                             <Image
                                 borderRadius="xl"
                                 src={'/resources/images/logo.png'}
                                 alt="avatar image"
-                                boxSize="120px"
+                                boxSize="240px"
                                 objectFit="cover"
                                 cursor="pointer"
                             />
                         </GridItem>
-                        <GridItem colSpan={3}>
-                            Name and address
+                        <GridItem colSpan={2}>
+                            {renderHeading()}
                         </GridItem>
                         <GridItem colSpan={1}>
                             <Flex>
                                 <Button mr={2} onClick={handleLik}>Like</Button>
                                 <Button mr={2}>Follow</Button>
-                                {isOwner && <Button onClick={handleEdit}>Edit</Button>}
+                                {renderEditButton()}
                             </Flex>
                         </GridItem>
-                        <GridItem colSpan={4}>Bio here</GridItem>
+                        <GridItem colSpan={3}>{renderBio()}</GridItem>
                     </Grid>
                 </Box>
             </Flex>
