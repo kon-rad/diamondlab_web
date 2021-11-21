@@ -5,9 +5,10 @@ import {
     Textarea,
     Center,
     Box,
+    Image,
     Button,
 } from '@chakra-ui/react';
-import { uploadImageToIPFS } from '../services/create-post';
+import { uploadImageToIPFS } from '../services/createPost';
 
 type Props = {
     submit: any;
@@ -15,7 +16,6 @@ type Props = {
 
 const CreateForm = (props: Props) => {
     const [fileUrl, setFileUrl] = useState<any>(null);
-    const [fileUpload, setFileUpload] = useState();
     const [description, setDescription] = useState<string>('');
     const [price, setPrice] = useState<string>('');
 
@@ -35,12 +35,11 @@ const CreateForm = (props: Props) => {
         }
         const file = e.target.files[0];
         try {
-            // const url = await uploadImageToIPFS(file);
-            // setFileUrl(url);
-            // setFileUpload(file);
-            setFileUrl(
-                'https://ipfs.infura.io/ipfs/QmQVDpasygPGJ6dQZzCzzFvDZoPgPbprSfp6pyhkZLr8DL',
-            );
+            const url = await uploadImageToIPFS(file);
+            setFileUrl(url);
+            // setFileUrl(
+            //     'https://ipfs.infura.io/ipfs/QmQVDpasygPGJ6dQZzCzzFvDZoPgPbprSfp6pyhkZLr8DL',
+            // );
         } catch (error) {
             console.log(`Error uploading file: ${error}`);
         }
@@ -48,10 +47,10 @@ const CreateForm = (props: Props) => {
     const renderImage = () => {
         if (fileUrl) {
             return (
-                <img
-                    className="rounded mt-4"
-                    width="350"
+                <Image
                     src={fileUrl}
+                    boxSize="350px"
+                    objectFit="cover"
                 />
             );
         }
@@ -61,8 +60,8 @@ const CreateForm = (props: Props) => {
         <>
             <Center>
                 <Box
-                    borderColor="brand.darkslategray"
-                    bg={'brand.aquamarine'}
+                    borderColor="brand.gradienta"
+                    bg={'brand.gradienta'}
                     maxW="lg"
                     p={4}
                     borderWidth="1px"
@@ -89,6 +88,7 @@ const CreateForm = (props: Props) => {
                             placeholder="NFT description"
                             size="sm"
                             borderColor="brand.darkslategray"
+                            bg="brand.darkslategray"
                         />
                         <Box mb={4}>
                             <Input
@@ -98,6 +98,7 @@ const CreateForm = (props: Props) => {
                                 onChange={(e) =>
                                     setPrice(e.target.value)
                                 }
+                                bg="brand.darkslategray"
                             />
                         </Box>
                         <Box mb={4}>
@@ -106,6 +107,9 @@ const CreateForm = (props: Props) => {
                                 name="image"
                                 className="CreateForm__img"
                                 onChange={handleImageUpload}
+                                style={{
+                                    backgroundColor: "brand.darkslategray"
+                                }}
                             />
                         </Box>
                         <Button

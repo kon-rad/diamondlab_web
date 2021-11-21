@@ -5,6 +5,8 @@
 // Runtime Environment's members available in the global scope.
 import { ethers } from "hardhat";
 
+const IPFS_ADDRESS = "ipfs://QmUHD3vGtPomDDD8xdJeGjHKHVaih4dvU7hkbugc5b2i6e";
+
 async function main() {
   // Hardhat always runs the compile task when running scripts with its command
   // line interface.
@@ -23,6 +25,10 @@ async function main() {
   const nft = await NFT.deploy(market.address);
   await nft.deployed();
   console.log('DLNFT deployed to: ', nft.address);
+  const MemberNFT = await hre.ethers.getContractFactory('DLMemberNFT');
+  const memberNft = await MemberNFT.deploy("Diamond Lab Member", "DMDLBM", IPFS_ADDRESS);
+  await memberNft.deployed();
+  console.log('DLMemberNFT deployed to: ', memberNft.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

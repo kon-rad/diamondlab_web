@@ -10,9 +10,9 @@ import { nftAddress, dlMarketAddress } from '../config';
 
 import NFT from '../artifacts/contracts/DLNFT.sol/DLNFT.json';
 import Market from '../artifacts/contracts/DLMarket.sol/DLMarket.json';
+import { useWeb3React } from '@web3-react/core';
 
 const Home: NextPage = () => {
-
   const [nfts, setNfts] = useState<any>([]);
   const [loadingState, setLoadingState] = useState('not-loaded');
   useEffect(() => {
@@ -28,6 +28,8 @@ const Home: NextPage = () => {
       Market.abi,
       provider
     );
+    console.log("marketContract: ", marketContract);
+    
     const data = await marketContract.fetchMarketItems();
     console.log('data: ', data);
 
@@ -65,7 +67,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Container maxW="xl">
-        <Box mb={4} mt={2}>
+        <Box mb={48} mt={2}>
           <VStack>
             <Text variant="primary" fontSize="3xl">Connect | Discover | Trade</Text>
             <Image borderRadius="xl" src={'/resources/images/logo.png'} width="64px" height="64px"/>

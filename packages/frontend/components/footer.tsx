@@ -104,6 +104,7 @@ export default function Footer() {
                             <Link href={'#'}>Terms of Service</Link>
                             <Link href={'#'}>Legal</Link>
                             <Link href={'#'}>Privacy Policy</Link>
+                            <Link href={'/credits'}>Credits</Link>
                         </Stack>
                         <Stack align={'flex-start'}>
                             <ListHeader>Follow Us</ListHeader>

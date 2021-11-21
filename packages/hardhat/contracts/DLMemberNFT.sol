@@ -9,7 +9,7 @@ contract DLMemberNFT is ERC721Enumerable, Ownable {
 
   string public baseURI;
   string public baseExtension = ".json";
-  uint256 public cost = 5 ether;
+  uint256 public cost = 50 ether;
   uint256 public maxSupply = 10000;
   uint256 public maxMintAmount = 30;
   bool public paused = false;

@@ -1,4 +1,4 @@
-import { Box, Text, Image, Flex, Button } from '@chakra-ui/react';
+import { Box, Text, HStack, VStack, Image, Flex, Button } from '@chakra-ui/react';
 import { NFT, AllNFT } from '../utils/types';
 import { useState } from 'react';
 
@@ -13,21 +13,28 @@ const NFTCard = (props: Props) => {
     
     const handleError = () => {
         console.log("img load error: ", nft.image);
-        
         setImgSrc("/resources/images/logo.png");
     }
-    console.log("loading: ", nft);
     
     return (
-        <Image
-            borderRadius="xl"
-            src={imgSrc ? imgSrc : (nft.image || "/resources/images/logo.png")}
-            alt="nft image"
-            boxSize="280px"
-            objectFit="cover"
-            cursor="pointer"
-            onError={handleError}
-        />
+        <Box width="280px" height="340px">
+            <VStack>
+                <Image
+                    borderRadius="xl"
+                    src={imgSrc ? imgSrc : (nft.image || "/resources/images/logo.png")}
+                    alt="nft image"
+                    boxSize="280px"
+                    objectFit="cover"
+                    cursor="pointer"
+                    onError={handleError}
+                />
+                <HStack>
+                    <Button>Buy</Button>
+                    <Button>Like</Button>
+                    <Button>Follow</Button>
+                </HStack>
+            </VStack>
+        </Box>
     )
 }
 

@@ -2081,6 +2081,11 @@
     "@typescript-eslint/types" "4.33.0"
     eslint-visitor-keys "^2.0.0"
 
+"@unlock-protocol/contracts@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@unlock-protocol/contracts/-/contracts-0.0.1.tgz#879bbdbbd0c078b0448a460e6889e4bc36861750"
+  integrity sha512-26emZ0RT4Oy+/C5/Pz+XAO1oUkLJ2NW+JJsFgxrXtCX4ZVvFwY+pUHjfBikrg1VmXGIrwtsf9YGQM/1eaRQaCA==
+
 "@web3-react/abstract-connector@^6.0.7":
   version "6.0.7"
   resolved "https://registry.yarnpkg.com/@web3-react/abstract-connector/-/abstract-connector-6.0.7.tgz#401b3c045f1e0fab04256311be49d5144e9badc6"

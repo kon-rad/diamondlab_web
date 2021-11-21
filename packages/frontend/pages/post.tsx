@@ -1,7 +1,7 @@
 import { Center, Flex, Text } from '@chakra-ui/react';
 import { useWeb3React } from '@web3-react/core';
 import CreateForm from '../components/createForm';
-import { createPost } from '../services/create-post';
+import { createPost } from '../services/createPost';
 
 const Post = () => {
 

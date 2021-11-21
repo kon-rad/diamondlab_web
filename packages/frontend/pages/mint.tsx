@@ -13,7 +13,7 @@ import {
     Image
 } from '@chakra-ui/react';
 import { useWeb3React } from '@web3-react/core';
-import { createPost } from '../services/create-post';
+import { createPost } from '../services/createPost';
 import { memberNftAddress } from '../config';
 import DLMemberNFT from '../artifacts/contracts/DLMemberNFT.sol/DLMemberNFT.json';
 import { CheckCircleIcon } from '@chakra-ui/icons';
@@ -56,12 +56,14 @@ const Mint = () => {
     return (
         <>
             <VStack p={5} mb={12}>
-                <Text fontSize="3xl" mb={12}>
-                    Mint a Diamond Lab Member NFT
-                </Text>
-                <Text fontSize="3xl"mb={12}>
-                    Get access to premium features
-                </Text>
+                <Box textAlign="center" mb={24}>
+                    <Text fontSize="3xl" mb={12}>
+                        Mint a Diamond Lab Member NFT
+                    </Text>
+                    <Text fontSize="xl" mb={12}>
+                        Get access to premium features
+                    </Text>
+                </Box>
                 <Image borderRadius="xl" src="/resources/images/preview.png" height="300px" m={4}/>
                 <Box mb={12}>
                     <List spacing={3} mb={24}>
@@ -73,7 +75,7 @@ const Mint = () => {
                             <span style={{ color: '#90f1ef' }}>
                                 coming soon
                             </span>{' '}
-                            NFT Database
+                            NFT Database and analytics
                         </ListItem>
                         <ListItem>
                             <ListIcon
@@ -83,7 +85,7 @@ const Mint = () => {
                             <span style={{ color: '#90f1ef' }}>
                                 coming soon
                             </span>{' '}
-                            AI NFT success predictor
+                            NFT success predictor AI
                         </ListItem>
                         <ListItem>
                             <ListIcon
@@ -117,8 +119,10 @@ const Mint = () => {
                         </ListItem>
                     </List>
                 </Box>
+                <Text fontSize="xl" mb={12}>Preview</Text>
+                <Image borderRadius="xl" src="/resources/images/mint_preview.png" height="320px" mb={12}/>
                 <Box mb={12}>
-                    <Button>Mint for 5 Matic</Button>
+                    <Button>Mint for 50 Matic</Button>
                 </Box>
             </VStack>
         </>
