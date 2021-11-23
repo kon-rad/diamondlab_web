@@ -13,3 +13,25 @@ Completed for the 'web 3 jam' ETHGlobal hackathon
 - create a profile stored in a decentralized way
 - mint a membership token
 - Search for NFTs 
+
+# Tools:
+
+IPFS
+Ceramic
+Covalent API
+NFTPort
+Unlock
+
+# thanks to
+
+• ETHGlobal Hackathon
+• HashLips NFT Generator Engine
+• Nader Dabit
+• unsplash
+• coolors.co                       
+• uigradients.com                       
+• text2png                       
+• sharp                       
+• canva                       
+• figma
+
