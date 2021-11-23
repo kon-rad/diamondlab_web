@@ -1,14 +1,15 @@
 # Diamond Lab
 
-The place for creating, publishing and trading NFTs.
+NFT social media app, marketplace and tool box
+
+See demo video here https://showcase.ethglobal.com/web3jam/diamondlab
+
+Completed for the 'web 3 jam' ETHGlobal hackathon
 
 # Features
 
-- follow users
-- send micropayments as 'likes'
-- display logged in user account nfts
-- display any user account nfts
-- display user account metadata: bio, name, avatar image
-- NFTPort - detect if nft is fake
-- Covalent API - fetch user NFTs
-- ens name resolution
+- mint NFTs
+- buy and sell NFTs
+- create a profile stored in a decentralized way
+- mint a membership token
+- Search for NFTs 
