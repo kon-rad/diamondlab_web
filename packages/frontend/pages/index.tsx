@@ -21,7 +21,7 @@ const Home: NextPage = () => {
 
   async function loadNFTs() {
     /* create a generic provider and query for unsold market items */
-    const provider = new ethers.providers.JsonRpcProvider();
+    const provider = ethers.getDefaultProvider('rinkeby');
     const nftContract = new ethers.Contract(nftAddress, NFT.abi, provider);
     const marketContract = new ethers.Contract(
       dlMarketAddress,

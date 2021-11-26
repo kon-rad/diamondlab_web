@@ -14,6 +14,19 @@ Completed for the 'web 3 jam' ETHGlobal hackathon
 - mint a membership token
 - Search for NFTs 
 
+# Roadmap:
+
+January 1st, 2022
+• Instagram profile minter
+• Rinkeby version deployment
+• opensea minting bot
+• opensea minting tool
+• nftport minting tool
+• nft data, price floor, table view
+• nft database
+
+
+
 # Tools:
 
 IPFS
