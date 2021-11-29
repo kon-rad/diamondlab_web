@@ -46,6 +46,7 @@ contract DLMemberNFT is ERC721Enumerable, Ownable {
     for (uint256 i = 1; i <= _mintAmount; i++) {
       _safeMint(_to, supply + i);
     }
+    // todo: emit events
   }
 
   function walletOfOwner(address _owner)

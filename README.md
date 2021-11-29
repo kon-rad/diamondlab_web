@@ -24,7 +24,7 @@ January 1st, 2022
 • nftport minting tool
 • nft data, price floor, table view
 • nft database
-
+• game mvp - user is nomadic developer, learning, teaching tech
 
 
 # Tools:
@@ -48,3 +48,6 @@ Unlock
 • canva                       
 • figma
 
+# todos:
+1. fix deployment to rinkeby bug
+2. generate nft pfp 10,000 images
