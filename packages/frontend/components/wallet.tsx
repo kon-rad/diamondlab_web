@@ -30,11 +30,11 @@ const Wallet = () => {
         <>
             {!web3Connect.active && 
                 <Menu>
-                    <MenuButton as={Button} rightIcon={<ChevronDownIcon />} bg="brand.flickrPink" >
+                    <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
                         Connect
                     </MenuButton>
-                    <MenuList bg="brand.darkslategray">
-                        <MenuItem onClick={connect}>Metamask</MenuItem>
+                    <MenuList bg="green.300">
+                        <MenuItem _focus={ { bg: "charcoal.50" } } _hover={ { bg: "charcoal.50" } }  _active={ { bg: "charcoal.50" } }  onClick={connect}>Metamask</MenuItem>
                     </MenuList>
                 </Menu>
             }
@@ -46,8 +46,10 @@ const Wallet = () => {
                                 <Box>{formatAddress(web3Connect.account)}</Box>
                             </Flex>
                         </MenuButton>
-                        <MenuList bg="brand.darkslategray">
-                            <MenuItem onClick={navigateToProfile}>Profile</MenuItem>
+                        <MenuList bg="green.300">
+                            <MenuItem  _focus={ { bg: "charcoal.50" } } _hover={ { bg: "charcoal.50" } }  _active={ { bg: "charcoal.50" } }  bg="charcoal.400" onClick={navigateToProfile}>
+                                Profile
+                            </MenuItem>
                         </MenuList>
                     </Menu>
                 </>

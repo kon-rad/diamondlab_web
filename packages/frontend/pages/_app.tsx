@@ -4,15 +4,14 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react"
 import { Web3ReactProvider } from '@web3-react/core'
 import { getProvider } from '../utils/web3';
 import Layout from '../components/layout';
-import { mode } from '@chakra-ui/theme-tools';
 import { SEO } from '../components/seo'
 import "@fontsource/syne"
 
 const styles = {
   global: (props: any) => ({
     body: {
-      color: mode('gray.800', 'whiteAlpha.900')(props),
-      bg: mode('gray.100', 'brand.darkslategray')(props),
+      color: 'whiteAlpha.900',
+      bg: 'brand.darkslategray',
     },
   }),
 };
@@ -41,6 +40,16 @@ const dlTheme = {
     Button: {
       baseStyle: {
         color: 'gray.100',
+        background: 'red.400',
+        backgroundColor: 'red.400',
+        _hover: {
+          background: 'red.600',
+          backgroundColor: 'red.600',
+        },
+        _active: {
+          background: 'red.600',
+          backgroundColor: 'red.600',
+        }
       },
       variants: {
         primary: {
@@ -50,6 +59,36 @@ const dlTheme = {
           backgroundColor: "linear-gradient(to right, #eaafc8, #654ea3)",
         }
       },
+    },
+    MenuItem: {
+      color: 'purple.800',
+      _hover: {
+        background: 'red.600',
+        backgroundColor: 'red.600',
+      },
+      _active: {
+        background: 'red.600',
+        backgroundColor: 'red.600',
+      },
+      _focus: {
+        background: 'red.600',
+        backgroundColor: 'red.600',
+      },
+      baseStyle: {
+        color: 'purple.800',
+        _hover: {
+          background: 'red.600',
+          backgroundColor: 'red.600',
+        },
+        _active: {
+          background: 'red.600',
+          backgroundColor: 'red.600',
+        },
+        _focus: {
+          background: 'red.600',
+          backgroundColor: 'red.600',
+        }
+      }
     },
     Text: {
       baseStyle: {

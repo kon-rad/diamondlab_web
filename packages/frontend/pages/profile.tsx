@@ -15,6 +15,8 @@ import {
     Tab,
     TabPanel,
     Heading,
+    Center,
+    Spinner,
 } from '@chakra-ui/react';
 import DisplayGrid from '../components/displayGrid';
 import { getWalletNFTs } from '../services/getWalletNFTs';
@@ -73,17 +75,17 @@ const Profile = () => {
 
     useEffect(() => {
         fetchNfts();
-        getProfile();
+        // getProfile();
     }, []);
 
     const fetchNfts = async () => {
         if (!web3.account) {
             return;
         }
+        console.log("account: ", web3.account);
         setIsFetching(true);
-        // const tokens = await getWalletNFTs(web3.account);
         const tokens = await getWalletNFTs(
-            '0xa2ba04f43ca44304657364fb94c5e6ba0f3d8ebc',
+            web3.account
         );
         setNFTList(tokens);
         setIsFetching(false);
@@ -112,7 +114,6 @@ const Profile = () => {
         await self.set('basicProfile', profile);
         console.log('saved: ', profile);
         console.log('id: ', self.id);
-
         // did:3:kjzl6cwe1jw148fea5wgifatlt07ogdyjjaaup37qgq3h1t6rbd42zoqswusqp4
     };
     const getProfile = async () => {
@@ -311,7 +312,8 @@ const Profile = () => {
                         </TabList>
                         <TabPanels>
                             <TabPanel>
-                                <DisplayGrid nfts={nftList} />
+                                {isFetching ? 
+                                <Center><Spinner sixe="xl" /></Center> : <DisplayGrid nfts={nftList} />}
                             </TabPanel>
                             <TabPanel>
                                 {renderSubscribe()}
@@ -325,49 +327,3 @@ const Profile = () => {
 };
 
 export default Profile;
-// todo: trash code that uses CeramicClient TileDocuments directly
-// const login = async () => {
-//     // read/write testnet node
-//     const API_URL = "https://ceramic-clay.3boxlabs.com";
-//     const ceramic = new CeramicClient(API_URL)
-//     const resolver = {
-//         ...KeyDidResolver.getResolver(),
-//         ...ThreeIdResolver.getResolver(ceramic),
-//     }
-//     const did = new DID({ resolver })
-//     ceramic.did = did
-
-//     const address = web3.account;
-//     if (!address) {
-//         return;
-//     }
-//     const threeIdConnect = new ThreeIdConnect()
-//     const authProvider = new EthereumAuthProvider(web3.library, address)
-//     await threeIdConnect.connect(authProvider)
-
-//     const provider = await threeIdConnect.getDidProvider()
-//     ceramic.did.setProvider(provider)
-//     await ceramic.did.authenticate()
-//     console.log("authenitcated: ", ceramic.did);
-
-// }
-// const createProfile = async (ceramic: any, content: any) => {
-//     const doc = await TileDocument.create(
-//         ceramic,
-//         content,
-//         {
-//           controllers: [ceramic.did.id],
-//           family: 'dmlb_profile',
-//         }
-//     );
-
-//     const streamId = doc.id.toString();
-// }
-// const updateProfile = async (ceramic: any, streamId: string, content: any) => {
-//     const doc = await TileDocument.load(ceramic, streamId);
-//     await doc.update(content);
-// }
-// const readProfile = async (ceramic: any, streamId: string) => {
-//     const doc = await TileDocument.load(ceramic, streamId);
-//     return doc;
-// }
