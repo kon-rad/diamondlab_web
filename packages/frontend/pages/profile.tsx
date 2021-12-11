@@ -312,8 +312,13 @@ const Profile = () => {
                         </TabList>
                         <TabPanels>
                             <TabPanel>
-                                {isFetching ? 
-                                <Center><Spinner sixe="xl" /></Center> : <DisplayGrid nfts={nftList} />}
+                                {
+                                    isFetching ? 
+                                    <Center><Spinner sixe="xl" mt="24" /></Center>
+                                        : (nftList.length > 0
+                                            ? <DisplayGrid nfts={nftList} />
+                                            : (<Center><Text>This wallet has no NFTs</Text></Center>))
+                                }
                             </TabPanel>
                             <TabPanel>
                                 {renderSubscribe()}
