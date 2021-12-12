@@ -76,7 +76,7 @@ const Profile = () => {
     useEffect(() => {
         fetchNfts();
         // getProfile();
-    }, []);
+    }, [web3 && web3.account]);
 
     const fetchNfts = async () => {
         if (!web3.account) {
