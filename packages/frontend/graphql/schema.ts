@@ -3,7 +3,7 @@
 import { gql } from 'apollo-server-micro'
 
 export const typeDefs = gql`
-  type NFTDrop {
+  type nftDrop {
     id: String
     title: String
     description: String
@@ -12,5 +12,8 @@ export const typeDefs = gql`
     discord: String
     category: String
     imageUrl: String
+    website: String
+    contractAddress: String
+    notes: String
   }
 `
