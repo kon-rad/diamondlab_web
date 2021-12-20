@@ -22,18 +22,18 @@ const Header = () => {
                 </LinkBox>
             </Box>
             <Box mr={4}>
-                <LinkBox>
+                {/* <LinkBox>
                     <NextLink href="/database" passHref={true}>
                         <Button>Database</Button>
                     </NextLink>
-                </LinkBox>
+                </LinkBox> */}
             </Box>
             <Box mr={4}>
-                <LinkBox>
+                {/* <LinkBox>
                     <NextLink href="/upcoming" passHref={true}>
                         <Button>Upcoming</Button>
                     </NextLink>
-                </LinkBox>
+                </LinkBox> */}
             </Box>
             <Box mr={4}>
                 <LinkBox>
