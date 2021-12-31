@@ -19,6 +19,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 const privateKey =
   fs.readFileSync('.secret').toString().trim() || '01234567890123456789';
 
+console.log('mumbia: ', process.env.MUMBAI_API_KEY);
 
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
@@ -41,10 +42,10 @@ module.exports = {
     hardhat: {
       chainId: 1337,
     },
-    mumbai: {
-      url: 'https://rpc-mumbai.matic.today',
-      accounts: [process.env.MUMBAI_API_KEY],
-    },
+    // mumbai: {
+    //   url: 'https://rpc-mumbai.matic.today',
+    //   accounts: [process.env.MUMBAI_API_KEY],
+    // },
     ropsten: {
       url: process.env.ROPSTEN_URL || "",
       accounts:

@@ -1,12 +1,14 @@
 // prisma/seed.ts
 
 import { PrismaClient } from '@prisma/client'
-import { nftdrops } from '../data/nftdrops'
+import { projects } from '../data/nftdrops'
 const prisma = new PrismaClient()
 
+console.log('inside prisma/seed.ts', projects);
+
 async function main() {
-  await prisma.nFTDrop.createMany({
-    data: nftdrops,
+  await prisma.project.createMany({
+    data: projects,
   })
 }
 
