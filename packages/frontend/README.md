@@ -15,3 +15,7 @@ To start prisma studio:
 
 npx prisma studio
 
+# todos:
+1. read 'project' graphql endpoint from frontend
+    a. display them in a list
+2. write 'project's
